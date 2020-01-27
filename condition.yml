@@ -1,0 +1,10 @@
+-
+ name: Demo on ansible condition
+ hosts: all
+ vars:
+   age: 18
+ tasks:
+   -
+    name: create a dummy file id condition match
+    command: touch /tmp/dummy.txt
+    when: age > 10 and age < 20   
