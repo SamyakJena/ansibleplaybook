@@ -1,0 +1,21 @@
+-
+ name: Demo on declare variable
+ hosts: all
+ become: true
+ vars:
+  pkgs: 
+   - docker
+   - httpd
+ tasks:
+  -
+   name: install a service
+   yum: 
+    name: "{{ item }}" 
+    state: present
+   with_items:
+      "{{ pkgs }}"
+  -
+   name: start service
+   service: name="{{ item }}" state=started
+   with_items:
+      "{{ pkgs }}"

@@ -1,0 +1,14 @@
+-
+ name: Demo on loop
+ hosts: all
+ become: yes
+ tasks:
+  -
+   name: install package
+   yum: 
+    name: "{{ item }}" 
+    state: absent
+   with_items:
+      - docker
+      - httpd
+

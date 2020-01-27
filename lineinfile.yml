@@ -1,0 +1,7 @@
+-
+ name: This is a demo on lineinfile module
+ hosts: all
+ tasks:
+  - 
+   name: Add line in the file
+   lineinfile: path=/tmp/test.txt line="This a demo on lineinfile module"

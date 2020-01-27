@@ -1,0 +1,10 @@
+-
+ name: This is my first playbook
+ hosts: webserver1
+ tasks:
+  -
+   name: Create a dummy file
+   command: touch /tmp/dummy.txt
+  -
+   name: Create a dummy file
+   command: touch /tmp/dummy1.txt

@@ -1,0 +1,12 @@
+-
+ name: Demo on declare variable
+ hosts: all
+ become: true
+ vars:
+  abc: git
+ tasks:
+  -
+   name: install a service
+   yum: 
+    name: "{{ abc }}" 
+    state: present

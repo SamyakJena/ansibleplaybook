@@ -1,0 +1,8 @@
+-
+ name: This is demo on copy module
+ hosts: all
+ become: yes
+ tasks:
+  -
+   name: copy a file to node-1
+   copy: src=test.txt dest=/tmp/ owner=abhi group=abhi mode=0777
