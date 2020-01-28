@@ -1,0 +1,7 @@
+-
+ name: This is a demo on separation
+ hosts: all
+ vars_files:
+    - var.yml
+ tasks:
+   - include: task.yml

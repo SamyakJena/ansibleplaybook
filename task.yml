@@ -1,0 +1,9 @@
+-
+ name: Demo on separation
+ command: touch /tmp/{{ var1 }}.txt
+-
+ name: Demo on separation
+ command: touch /tmp/{{ var2 }}.txt
+-
+ name: Demo on separation
+ command: touch /tmp/{{ var3 }}.txt

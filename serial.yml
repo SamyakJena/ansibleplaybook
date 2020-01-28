@@ -1,0 +1,11 @@
+-
+ name: This is a demo on error handling
+ hosts: webserver1,sqlserver1
+ serial: 2
+ tasks:
+  -
+   name: First task
+   command: touch /tmp/dummy.txt
+  -
+   name: Second task
+   command: touch /tmp/dummy1.txt
