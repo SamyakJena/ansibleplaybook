@@ -1,0 +1,49 @@
+-
+ name: Demo on hosting static website
+ hosts: webserver1
+ become: yes
+ tasks:
+   -
+    name: Install apache
+    yum:
+      name: httpd
+      state: present
+   -
+    name: install git
+    yum:
+      name: git
+      state: present
+   -
+    name: Download static website from git
+    git:
+     repo: https://github.com/javahometech/javahome-app.git
+     dest: /var/www/html
+    notify:
+       - Restart apache
+    tags:
+      - deploy
+   -
+    name: Start apache
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+   - 
+    name: change default port
+    lineinfile:
+       path: /etc/httpd/conf/httpd.conf
+       regexp: '^Listen '
+       insertafter: '^#Listen '
+       line: Listen 9090
+    notify:
+      - Restart apache
+   
+ handlers:
+   
+    - name: Restart apache
+      service:
+        name: httpd
+        state: restarted
+
+
+    
